@@ -6,6 +6,7 @@
     <title>Code Me Metković</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
   </head>
   <body class="bg-gray-100 text-gray-800">
    <!-- Navigacija -->
@@ -52,25 +53,45 @@
 
 
     <!-- Iframe + Show More -->
- 
-    <div x-data="{ show: false }">
-        <div class="relative w-full overflow-hidden transition-all duration-700 ease-in-out  " :style="show ? 'max-height: 2000px;' : 'max-height: 650px;'">
-          <iframe
-            src="https://tuningspecs.com/api/iframe.php?user=700oL2f48Xpg3dsQ&amp;language=en"
-            width="100%"
-            scrolling="no"
-            frameborder="0"
-            style="border: 0px; overflow: hidden; height: 1858px; background-color: #0A0F1A;"
-            id="iFrameResizer0"
-          ></iframe>
-        </div>
-        <div class="text-center mt-4">
-          <button @click="show = !show" class="bg-[#cd3027] hover:bg-[#a82820] text-white font-semibold py-2 px-4 rounded transition">
-            <span x-text="show ? 'Sakrij' : 'Prikaži više'"></span>
-          </button>
-        </div>
-      </div>
+<div x-data="{ showButton: false, showContent: false }">
+    <!-- Iframe -->
+    <div class="relative w-full overflow-hidden">
+      <iframe
+        src="https://tuningspecs.com/api/iframe.php?user=700oL2f48Xpg3dsQ&amp;language=en"
+        width="100%"
+        scrolling="no"
+        frameborder="0"
+        style="border: 0px; overflow: hidden; height: 1858px; background-color: #0A0F1A;"
+        id="iFrameResizer0"
+      ></iframe>
     </div>
+  
+    <!-- Gumb za prikaz više -->
+    <div class="text-center mt-4" x-show="showButton" x-transition>
+      <button @click="showContent = !showContent" class="bg-[#cd3027] hover:bg-[#a82820] text-white font-semibold py-2 px-4 rounded transition">
+        <span x-text="showContent ? 'Sakrij' : 'Prikaži više'"></span>
+      </button>
+    </div>
+  
+    <!-- Sadržaj koji se prikazuje nakon klika na gumb -->
+    <div x-show="showContent" x-transition class="bg-white p-6 mt-6 rounded-lg shadow">
+      <h3 class="text-lg font-bold mb-4">Detalji o performansama</h3>
+      <p>Ovdje će se prikazati dodatne informacije nakon što odaberete automobil i kliknete "View Gains".</p>
+    </div>
+  </div>
+  
+  <!-- Skripta za komunikaciju s iframeom -->
+  <script>
+    window.addEventListener("message", function (event) {
+      // Provjeri dolazi li poruka iz iframea
+      if (event.origin === "https://tuningspecs.com") {
+        if (event.data === "viewGainsClicked") {
+          // Pronađi Alpine.js komponentu i postavi showButton na true
+          document.querySelector('[x-data]').__x.$data.showButton = true;
+        }
+      }
+    });
+  </script>
 
     <!-- Inicijalizacija iFrame Resizera -->
     <script>
