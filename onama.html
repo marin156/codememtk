@@ -3,75 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>O nama</title>
+    <title>Code Me Metković</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
   </head>
-  <body class="bg-[#0A0F1A] text-white">
-    <!-- Naslovna slika -->
-    <header class="h-40 bg-cover bg-center" style="background-image: url('naslovna2.jpg');">
-    </header>
-
-    <!-- Navigacija -->
-    <nav class="bg-[#0A0F1A] border-b border-gray-700" x-data="{ open: false }">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-          <div class="flex items-center">
-            <!-- Logo -->
-            <a href="#">
-              <img src="logo.png" alt="Logo" class="h-10">
-            </a>
-          </div>
-          <!-- Desktop meni -->
-          <div class="hidden md:flex space-x-8 text-white font-semibold">
-            <a href="index.html" class="hover:text-[#cd3027]">Početna</a>
-            <a href="usluge.html" class="hover:text-[#cd3027]">Naše Usluge</a>
-            <a href="brendovi.html" class="hover:text-[#cd3027]">Brendovi</a>
-            <a href="kontakt.html" class="hover:text-[#cd3027]">Kontakt</a>
-            <a href="onama.html" class="hover:text-[#cd3027] text-[#cd3027]">O nama</a>
-          </div>
-          <!-- Hamburger -->
-          <div class="md:hidden">
-            <button @click="open = !open" class="text-white focus:outline-none">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+  <body class="bg-gray-100 text-gray-800">
+   <!-- Navigacija -->
+<nav class="bg-black text-white" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="#">
+        <img src="logo.png" alt="Code Me Mtk Logo" class="h-10">
+      </a>
+      <!-- Desktop meni -->
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="hover:text-gray-400">Početna</a>
+        <a href="onama.html" class="hover:text-gray-400">O nama</a>
+        <a href="chiptuning.html" class="hover:text-gray-400">Chiptuning</a>
+        <a href="#" class="hover:text-gray-400">Kontakt</a>
+        <a href="#" class="hover:text-gray-400">Projekti</a>
       </div>
-      <!-- Mobile meni -->
-      <div x-show="open" class="md:hidden px-4 pb-4">
-        <a href="index.html" class="block py-2 hover:text-[#cd3027]">Početna</a>
-        <a href="#" class="block py-2 hover:text-[#cd3027]">Naše Usluge</a>
-        <a href="#" class="block py-2 hover:text-[#cd3027]">Brendovi</a>
-        <a href="#" class="block py-2 hover:text-[#cd3027]">Kontakt</a>
-        <a href="onama.html" class="block py-2 hover:text-[#cd3027]">O nama</a>
+      <!-- Hamburger meni -->
+      <div class="md:hidden">
+        <button @click="open = !open" class="focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-    </nav>
+    </div>
+    <!-- Mobile meni -->
+    <div 
+      x-show="open" 
+      x-transition:enter="transition ease-out duration-300 transform"
+      x-transition:enter-start="opacity-0 -translate-y-4 scale-y-75"
+      x-transition:enter-end="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave="transition ease-in duration-200 transform"
+      x-transition:leave-start="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave-end="opacity-0 -translate-y-4 scale-y-75"
+      class="md:hidden px-4 pb-4 origin-top bg-black"
+    >
+      <a href="#" class="block py-2 hover:text-gray-400">Početna</a>
+      <a href="onama.html" class="block py-2 hover:text-gray-400">O nama</a>
+      <a href="chiptuning.html" class="block py-2 hover:text-gray-400">Chiptuning</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Kontakt</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Projekti</a>
+    </div>
+  </nav>
 
-  
-
-    <!-- Sekcija s tekstom -->
-    <div class="max-w-4xl mt-10 mx-auto py-8 px-6 sm:px-8 text-center bg-[#121826] border border-gray-700 rounded-lg shadow-lg">
-      <h2 class="text-xl sm:text-2xl font-semibold text-[#cd3027] mb-4">O nama</h2>
-      <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-        Mi smo tim s više od dvije godine iskustva u usavršavanju automobila i podizanju njihove opreme na potpuno novu razinu. 
-        Naša strast prema automobilima i tehnologiji omogućuje nam da pružimo vrhunske usluge poput kodiranja, chiptuninga, 
-        ažuriranja navigacijskih sustava i retrofita opreme. Bez obzira na to želite li poboljšati performanse svog vozila 
-        ili ga opremiti najnovijim tehnološkim rješenjima, mi smo ovdje da ostvarimo vaše želje.
-      </p>
-      <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-4">
-        Naš cilj je ne samo zadovoljiti, već i premašiti očekivanja naših klijenata. Svakom projektu pristupamo s pažnjom, 
-        preciznošću i strašću, jer vjerujemo da svaki automobil zaslužuje biti na vrhuncu svojih mogućnosti. 
-        Vaše povjerenje je naša najveća nagrada, a vaš automobil – naša inspiracija.
-      </p>
+    <!-- Hero slika -->
+    <div class="relative h-80 bg-cover bg-center" style="background-image: url('https://atm-chiptuning.me/images/brand/hero.jpg');">
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 class="text-white text-4xl font-bold">MALO VIŠE O NAMA</h1>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-16 border-t border-gray-700 text-center py-6 text-sm text-gray-400">
-      &copy; 2025 Code Me MTK. Sva prava pridržana.
-    </footer>
-  </body>
-</html>
+
+<!-- Informativni tekst -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 text-center">
+  <h2 class="text-2xl font-bold text-gray-800 mb-4">ATM Brend</h2>
+  <p class="text-gray-600">
+    ATM Chiptuning B.V. osnovan je 2008. godine u Nizozemskoj kroz suradnju profesionalaca i tvrtki koje su dugi niz godina uključene u tuning. Podržan timom kvalificiranih stručnjaka iz automobilske industrije s bogatim znanjem o optimizaciji upravljanja motorom, ATM Chiptuning donosi vrhunske usluge optimizacije performansi. 
+    Ponosni smo što smo postali službeni ATM predstavnik baziran u Metkoviću, donoseći najbolje od chiptuninga direktno našim klijentima. Naša stručnost i posvećenost omogućuju nam da pružimo vrhunske usluge koristeći najmodernije tehnologije i alate dostupne na tržištu.
+  </p>
+</div>
+<!-- Crveni tile -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Prvi dio -->
+  <div class="bg-[#cd3027] text-white p-6 rounded-lg shadow text-center">
+    <div class="text-4xl mb-4">
+      <i class="fa-solid fa-earth-americas"></i>
+    </div>
+    <h3 class="text-lg font-bold mb-2">12 lokacija diljem svijeta</h3>
+  </div>
+  <!-- Drugi dio -->
+  <div class="bg-[#cd3027] text-white p-6 rounded-lg shadow text-center">
+    <div class="text-4xl mb-4">
+      <i class="fa-solid fa-users"></i>
+    </div>
+    <h3 class="text-lg font-bold mb-2">300+ tunera diljem svijeta</h3>
+  </div>
+  <!-- Treći dio -->
+  <div class="bg-[#cd3027] text-white p-6 rounded-lg shadow text-center">
+    <div class="text-4xl mb-4">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
+    <h3 class="text-lg font-bold mb-2">11 godina iskustva</h3>
+  </div>
+</div>
+
+
+    <!-- Powered by -->
+<div class="flex flex-col items-center mt-16 py-8 bg-gray-200">
+    <!-- Naslov iznad logotipa -->
+    <h3 class="text-lg font-bold text-gray-800 mb-6">Powered by</h3>
+    
+    <div class="flex justify-center items-center space-x-8">
+      <!-- bFlash -->
+      <div class="text-center">
+        <img src="https://bflash.eu/img/asset/YXNzZXRzL3NvY2lhbF9pbWFnZXMvb2ctYmZsYXNoLnBuZw/og-bflash.png?w=1200&h=630&fit=crop&s=6c8691297720eff208c17c81ef0dda7a" alt="bFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">bFlash</p>
+      </div>
+      <!-- FoxFlash -->
+      <div class="text-center">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/648926e3759f9b76c6556321/0x0.png" alt="FoxFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">FoxFlash</p>
+      </div>
+      <!-- ATM -->
+      <div class="text-center">
+        <img src="https://atm-chiptuning.me/images/header-logo.svg" alt="ATM Performance" class="h-16 mx-auto mb-4">
+        <p class="text-sm">ATM</p>
+      </div>
+    </div>
+  </div>
+  
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-gray-400 text-center py-6">
+        &copy; 2025 Code Me Mtk. Sva prava pridržana.
+      </footer>
+    </body>
+  </html>
