@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O nama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+  <!-- Navigacija -->
+<nav class="bg-black text-white" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+    <!-- Logo -->
+    <a href="#">
+      <img src="../logo.png" alt="Code Me Mtk Logo" class="h-10">
+    </a>
+    <!-- Desktop meni -->
+    <div class="hidden md:flex space-x-8">
+      <a href="../index.html" class="hover:text-gray-400">Početna</a>
+      <a href="../onama.html" class="hover:text-gray-400" style="color: #cd3027;">O nama</a>
+      <a href="../chiptuning.html" class="hover:text-gray-400">Chiptuning</a>
+      <a href="#" class="hover:text-gray-400">Kontakt</a>
+      <a href="#" class="hover:text-gray-400">Projekti</a>
+    </div>
+    <!-- Hamburger meni -->
+    <div class="md:hidden">
+      <button @click="open = !open" class="focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+    <!-- Mobile meni -->
+    <div 
+      x-show="open" 
+      x-transition:enter="transition ease-out duration-300 transform"
+      x-transition:enter-start="opacity-0 -translate-y-4 scale-y-75"
+      x-transition:enter-end="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave="transition ease-in duration-200 transform"
+      x-transition:leave-start="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave-end="opacity-0 -translate-y-4 scale-y-75"
+      class="md:hidden px-4 pb-4 origin-top bg-black"
+    >
+      <a href="../index.html" class="block py-2 hover:text-gray-400">Početna</a>
+      <a href="../onama.html" class="block py-2 hover:text-gray-400">O nama</a>
+      <a href="../chiptuning.html" class="block py-2 hover:text-gray-400">Chiptuning</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Kontakt</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Projekti</a>
+    </div>
+  </nav>
+
+ 
+
+  <!-- Hero slika -->
+  <div class="relative h-80 bg-cover bg-center" style="background-image: url('https://definedcoding.co.uk/cdn/shop/products/Carplay-Website_2048x2048.png?v=1587745474');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 text-center">
+      <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+        Aktivacija Carplay-a i Android Auto-a
+      </h1>
+    </div>
+  </div>
+
+<!-- Informacije o aktivaciji -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Mogućnost aktivacije Carplay-a</h2>
+    <p class="text-gray-600 text-lg leading-relaxed">
+      Aktivacija Apple Carplay-a moguća je za većinu modernih vozila marki BMW, VAG (Volkswagen, Audi, Škoda, Seat), Renault i Mercedes. Carplay je uglavnom podržan u vozilima proizvedenim od 2015. godine nadalje, ali mogućnost aktivacije ovisi o specifičnim detaljima vašeg automobila.
+    </p>
+    <p class="text-gray-600 text-lg leading-relaxed mt-4">
+      Kako bismo utvrdili je li moguće aktivirati Carplay na vašem vozilu, potrebno je da nam dostavite detalje o vašem automobilu, uključujući model, godinu proizvodnje i trenutnu verziju softvera. Naš tim stručnjaka će na temelju tih informacija provjeriti kompatibilnost i mogućnost aktivacije.
+    </p>
+    <p class="text-gray-600 text-lg leading-relaxed mt-4">
+      Aktivacija Carplay-a omogućuje vam korištenje aplikacija poput navigacije, glazbe i poziva direktno s vašeg iPhone uređaja, čime se značajno poboljšava iskustvo vožnje i sigurnost na cesti.
+    </p>
+    <p class="text-gray-600 text-lg leading-relaxed mt-4">
+      Za više informacija ili dogovor o aktivaciji, slobodno nas kontaktirajte putem našeg <a href="https://www.instagram.com/code_me_mtk/" target="_blank" class="text-blue-600 hover:underline">
+         Instagrama
+      </a> ili putem <a href=" https://wa.me/385976001041" class="text-blue-600 hover:underline"> Whatsapp-a</a>.
+    </p>
+  </div>
+
+<!-- Forma za odabir automobila -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Kako obaviti provjeru softvera?</h2>
+    <form id="carForm" class="bg-white p-6 rounded-lg shadow">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Marka -->
+        <div>
+          <label for="marka" class="block text-gray-700 font-bold mb-2">Marka</label>
+          <select id="marka" name="marka" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-500" onchange="updateYears()">
+            <option value="" disabled selected>Odaberite marku</option>
+            <option value="bmw">BMW</option>
+            <option value="audi">Audi</option>
+            <option value="vw">VW/Seat/Skoda</option>
+            <option value="renault">Renault</option>
+          </select>
+        </div>
+        <!-- Godina -->
+        <div>
+          <label for="godina" class="block text-gray-700 font-bold mb-2">Godina</label>
+          <select id="godina" name="godina" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-500">
+            <option value="" disabled selected>Odaberite godinu</option>
+          </select>
+        </div>
+      </div>
+      <!-- Pretraži tipka -->
+      <div class="mt-6 text-center">
+        <button type="button" onclick="searchCar()" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700">
+          Pretraži
+        </button>
+      </div>
+    </form>
+  </div>
+
+    <!-- Powered by -->
+<div class="flex flex-col items-center mt-16 py-8 bg-gray-200">
+    <!-- Naslov iznad logotipa -->
+    <h3 class="text-lg font-bold text-gray-800 mb-6">Powered by</h3>
+    
+    <div class="flex justify-center items-center space-x-8">
+      <!-- bFlash -->
+      <div class="text-center">
+        <img src="https://bflash.eu/img/asset/YXNzZXRzL3NvY2lhbF9pbWFnZXMvb2ctYmZsYXNoLnBuZw/og-bflash.png?w=1200&h=630&fit=crop&s=6c8691297720eff208c17c81ef0dda7a" alt="bFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">bFlash</p>
+      </div>
+      <!-- FoxFlash -->
+      <div class="text-center">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/648926e3759f9b76c6556321/0x0.png" alt="FoxFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">FoxFlash</p>
+      </div>
+      <!-- ATM -->
+      <div class="text-center">
+        <img src="https://atm-chiptuning.me/images/header-logo.svg" alt="ATM Performance" class="h-16 mx-auto mb-4">
+        <p class="text-sm">ATM</p>
+      </div>
+    </div>
+  </div>
+  
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-gray-400 text-center py-6">
+        &copy; 2025 Code Me Mtk. Sva prava pridržana.
+      </footer>
+      <script>
+        function updateYears() {
+          const marka = document.getElementById("marka").value;
+          const godina = document.getElementById("godina");
+      
+          // Očisti postojeće opcije
+          godina.innerHTML = '<option value="" disabled selected>Odaberite godinu</option>';
+      
+          // Dodaj opcije na temelju odabrane marke
+          if (marka === "bmw") {
+            godina.innerHTML += '<option value="2015-2024">2015-2024</option>';
+          } else if (marka === "audi" || marka === "vw") {
+            godina.innerHTML += '<option value="2015-2020">2015-2020</option>';
+            godina.innerHTML += '<option value="2020-2024">2020-2024</option>';
+          } else if (marka === "renault") {
+            godina.innerHTML += '<option value="2015-2020">2015-2020</option>';
+          }
+        }
+      
+        function searchCar() {
+          const marka = document.getElementById("marka").value;
+          const godina = document.getElementById("godina").value;
+      
+          if (marka && godina) {
+            // Definiraj URL na temelju odabira
+            const url = `/${marka}/${godina}.html`;
+      
+            // Preusmjeri na generirani URL
+            window.location.href = url;
+          } else {
+            alert("Molimo odaberite sve kriterije prije pretraživanja.");
+          }
+        }
+      </script>
+      <script>
+        function searchCar() {
+          const marka = document.getElementById("marka").value;
+          const godina = document.getElementById("godina").value;
+      
+          if (marka && godina) {
+            let url = "";
+      
+            // Definiraj URL na temelju odabira marke i godine
+            if (marka === "bmw" && godina === "2015-2024") {
+              url = "/provjera/bmw.html";
+            } else if (marka === "audi" && godina === "2015-2020") {
+              url = "/provjera/audi-15-20.html";
+            } else if (marka === "audi" && godina === "2020-2024") {
+              url = "/provjera/audi-20-24.html";
+            } else if (marka === "vw" && godina === "2015-2020") {
+              url = "/provjera/vwseatskoda-15-20.html";
+            } else if (marka === "vw" && godina === "2020-2024") {
+              url = "/provjera/vwseatskoda-20-24.html";
+            } else if (marka === "renault" && godina === "2015-2020") {
+              url = "/provjera/renault.html";
+            } else {
+              alert("Odabrana kombinacija nije podržana.");
+              return;
+            }
+      
+            // Preusmjeri na generirani URL
+            window.location.href = url;
+          } else {
+            alert("Molimo odaberite sve kriterije prije pretraživanja.");
+          }
+        }
+      </script>
+    </body>
+  </html>
