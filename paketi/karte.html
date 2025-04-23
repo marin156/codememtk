@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O nama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .text-justify {
+    text-align: justify;
+  }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+  <!-- Navigacija -->
+<nav class="bg-black text-white" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+    <!-- Logo -->
+    <a href="#">
+      <img src="../logo.png" alt="Code Me Mtk Logo" class="h-10">
+    </a>
+    <!-- Desktop meni -->
+    <div class="hidden md:flex space-x-8">
+      <a href="../index.html" class="hover:text-gray-400">Početna</a>
+      <a href="../onama.html" class="hover:text-gray-400">O nama</a>
+      <a href="../chiptuning.html" class="hover:text-gray-400">Chiptuning</a>
+      <a href="#" class="hover:text-gray-400">Kontakt</a>
+      <a href="#" class="hover:text-gray-400">Projekti</a>
+    </div>
+    <!-- Hamburger meni -->
+    <div class="md:hidden">
+      <button @click="open = !open" class="focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+    <!-- Mobile meni -->
+    <div 
+      x-show="open" 
+      x-transition:enter="transition ease-out duration-300 transform"
+      x-transition:enter-start="opacity-0 -translate-y-4 scale-y-75"
+      x-transition:enter-end="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave="transition ease-in duration-200 transform"
+      x-transition:leave-start="opacity-100 translate-y-0 scale-y-100"
+      x-transition:leave-end="opacity-0 -translate-y-4 scale-y-75"
+      class="md:hidden px-4 pb-4 origin-top bg-black"
+    >
+      <a href="../index.html" class="block py-2 hover:text-gray-400">Početna</a>
+      <a href="../onama.html" class="block py-2 hover:text-gray-400">O nama</a>
+      <a href="../chiptuning.html" class="block py-2 hover:text-gray-400">Chiptuning</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Kontakt</a>
+      <a href="#" class="block py-2 hover:text-gray-400">Projekti</a>
+    </div>
+  </nav>
+
+ 
+
+  <!-- Hero slika -->
+  <div class="relative h-80 bg-cover bg-center" style="background-image: url('/slike/kamere.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 text-center">
+      <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+        NAVIGACIJE SA RADARIMA
+      </h1>
+    </div>
+  </div>
+
+<!-- Informacije o aktivaciji -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Zašto su ažurne navigacijske karte važne?</h2>
+    <p class="text-gray-600 text-lg leading-relaxed text-justify">
+      Ažurne navigacijske karte ključne su za sigurno i učinkovito putovanje. Bez ažuriranih podataka o cestama, vozači se mogu suočiti s nepredviđenim situacijama poput zatvorenih cesta, novih prometnih pravaca ili promjena u infrastrukturi. To može dovesti do gubitka vremena, povećane potrošnje goriva i nepotrebnog stresa. Redovitim ažuriranjem navigacijskih karata osiguravate da uvijek imate točne informacije o svom putu, uključujući najnovije rute, prometne znakove i ograničenja brzine. Na taj način možete putovati s povjerenjem, znajući da vas vaša navigacija vodi najbržim i najsigurnijim putem.
+    </p>
+  
+    <p class="text-gray-600 text-lg leading-relaxed mt-4 text-justify">
+      Osim ažuriranja karata, nudimo i dodatne funkcionalnosti poput dodavanja lokacija kamera za nadzor brzine i mobilnih radara. Ove informacije pomažu vozačima da budu svjesni potencijalnih kontrola na cestama, čime se povećava sigurnost i smanjuje rizik od kazni. Naše usluge omogućuju vam da vaša navigacija ne bude samo alat za pronalaženje puta, već i pouzdan suputnik koji vas informira o svim važnim detaljima na vašem putovanju. S ovim dodatnim značajkama, vaša vožnja postaje sigurnija, ugodnija i bez nepotrebnih iznenađenja.
+    </p>
+  
+    <p class="text-gray-600 text-lg leading-relaxed mt-4 text-justify">
+      Navigacijske sustave moguće je ažurirati i na daljinu, bez potrebe za fizičkim dolaskom. Naš tim koristi sigurne metode za daljinsko ažuriranje karata, dodavanje kamera i mobilnih radara, čime štedimo vaše vrijeme i osiguravamo maksimalnu praktičnost. Sve što trebate učiniti je dostaviti nam potrebne informacije o vašem vozilu, a mi ćemo se pobrinuti za ostalo.
+    </p>
+  </div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Galerija</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Slika 1 -->
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="/slike/arteon.jpg" alt="Slika 1" class="w-full h-full object-cover">
+      </div>
+      <!-- Slika 2 -->
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="/slike/2025maps.jpg" alt="Slika 2" class="w-full h-full object-cover">
+      </div>
+      <!-- Slika 3 -->
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="/slike/audi.jpg" alt="Slika 3" class="w-full h-full object-cover">
+      </div>
+      <!-- Slika 4 -->
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img src="/slike/kamere.jpg" alt="Slika 4" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Powered by -->
+<div class="flex flex-col items-center mt-16 py-8 bg-gray-200">
+    <!-- Naslov iznad logotipa -->
+    <h3 class="text-lg font-bold text-gray-800 mb-6">Powered by</h3>
+    
+    <div class="flex justify-center items-center space-x-8">
+      <!-- bFlash -->
+      <div class="text-center">
+        <img src="https://bflash.eu/img/asset/YXNzZXRzL3NvY2lhbF9pbWFnZXMvb2ctYmZsYXNoLnBuZw/og-bflash.png?w=1200&h=630&fit=crop&s=6c8691297720eff208c17c81ef0dda7a" alt="bFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">bFlash</p>
+      </div>
+      <!-- FoxFlash -->
+      <div class="text-center">
+        <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/648926e3759f9b76c6556321/0x0.png" alt="FoxFlash" class="h-16 mx-auto mb-4">
+        <p class="text-sm">FoxFlash</p>
+      </div>
+      <!-- ATM -->
+      <div class="text-center">
+        <img src="https://atm-chiptuning.me/images/header-logo.svg" alt="ATM Performance" class="h-16 mx-auto mb-4">
+        <p class="text-sm">ATM</p>
+      </div>
+    </div>
+  </div>
+
+  
+  
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-gray-400 text-center py-6">
+        &copy; 2025 Code Me Mtk. Sva prava pridržana.
+      </footer>
+     
+     
+    </body>
+  </html>
